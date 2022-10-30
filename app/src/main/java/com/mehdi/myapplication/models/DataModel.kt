@@ -70,7 +70,7 @@ sealed class DataModel {
         val lastname: String?,
         val email : String?,
         val city : String?,
-        val nbFollow: Int?,
+        var nbFollow: Int?,
         val nbPosts: Int?,
         val avatarUrl: String?,
     ) : DataModel()

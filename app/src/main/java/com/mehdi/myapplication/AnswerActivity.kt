@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +18,10 @@ import com.mehdi.myapplication.models.RequestModel
 import com.mehdi.myapplication.models.ResponseModel
 import kotlinx.android.synthetic.main.answer_activity.*
 import kotlinx.android.synthetic.main.create_post_activity.*
+import kotlinx.android.synthetic.main.post_activity.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,11 +45,38 @@ class AnswerActivity : AppCompatActivity() {
         loadProperties()
         setDataOnLayout()
         setAction()
+        setUserImage(post.creator.id)
     }
 
     private fun setAction(){
         answer_activity_send_action.setOnClickListener {
             createPost()
+        }
+    }
+
+    private fun setUserImage(userId: Long){
+        GlobalScope.launch {
+            val getUserProfilImage: Call<ResponseModel.ImageResponse> =
+                NetworkManager.getUserProfilImage(
+                    userId,
+                    userConnectedPreferences!!.getString("accessToken", null)!!
+                )
+            var userProfilImage = getUserProfilImage.execute().body()
+            var imageToBitmap: Bitmap? = null
+            if (userProfilImage != null) {
+                if ( userProfilImage.file != null) {
+                    val imageToByte = Base64.getDecoder().decode(userProfilImage!!.file)
+                    imageToBitmap =
+                        BitmapFactory.decodeByteArray(imageToByte, 0, imageToByte.size)
+                    //print(userProfilImage)
+                }
+            }
+            withContext(Dispatchers.Main) {
+                if (imageToBitmap != null) {
+                    answer_activity_post_user_avatar_image.setImageBitmap(imageToBitmap)
+                }
+
+            }
         }
     }
 
@@ -92,7 +124,6 @@ class AnswerActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Something went wrong", Toast.LENGTH_LONG).show()
                     } else {
                         linkAnswerToPost(response.body()!!.id, response.body()!!)
-                        Toast.makeText(applicationContext, "The post has been created", Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -120,7 +151,7 @@ class AnswerActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Something went wrong", Toast.LENGTH_LONG).show()
                     } else {
                         print(response.body())
-                        Toast.makeText(applicationContext, "The answer has been created", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, "The answer has been posted", Toast.LENGTH_LONG).show()
                         val resultIntent = Intent()
                         resultIntent.putExtra("answerCreated", Gson().toJson(answerCreated))
                         setResult(Activity.RESULT_OK, resultIntent)

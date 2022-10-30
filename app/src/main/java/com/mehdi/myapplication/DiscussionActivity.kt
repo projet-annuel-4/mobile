@@ -3,6 +3,7 @@ package com.mehdi.myapplication
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -146,6 +147,7 @@ class DiscussionActivity: AppCompatActivity() {
                         message.add(messageSendedConverted)
                         recyclerAdapter.setData(message)
                         discussion_recycler_view.scrollToPosition(message.size-1)
+                        send_chat_message.text = Editable.Factory.getInstance().newEditable("")
                     }
                 }
             }

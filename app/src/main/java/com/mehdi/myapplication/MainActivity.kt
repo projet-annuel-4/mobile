@@ -209,7 +209,7 @@ class MainActivity : AppCompatActivity() {
             }
             withContext(Dispatchers.Main) {
                 if (imageToBitmap != null) {
-//                    cv_avatar_image.setImageBitmap(imageToBitmap)
+                    //cv_avatar_image.setImageBitmap(imageToBitmap)
                     header_search_avatar.setImageBitmap(imageToBitmap)
                 }
 
@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun cleanSharedPreference(){
-        Toast.makeText(this, "azerty", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Disconnected", Toast.LENGTH_SHORT).show()
         val preference : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
         val Ed = preference.edit()
         Ed.remove("accessToken")

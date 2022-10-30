@@ -79,13 +79,16 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         app:cardCornerRadius="50dp"
-        app:layout_constraintEnd_toStartOf="@id/follow_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="120dp"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/profile_user_avatar"
         android:layout_marginRight="10dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="23dp"
+            android:backgroundTint="@color/white"
             android:background="@drawable/ic_message_logo" />
 
     </androidx.cardview.widget.CardView>

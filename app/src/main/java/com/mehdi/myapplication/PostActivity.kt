@@ -135,7 +135,7 @@ class PostActivity : AppCompatActivity() {
                                         val imageToByte = Base64.getDecoder().decode(userProfilImage!!.file)
                                         imageToBitmap =
                                                 BitmapFactory.decodeByteArray(imageToByte, 0, imageToByte.size)
-                                        print(userProfilImage)
+                                        //print(userProfilImage)
                                 }
                         }
                         withContext(Dispatchers.Main) {

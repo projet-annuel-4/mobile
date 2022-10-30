@@ -47,10 +47,18 @@ import java.util.*
 
 class DataAdapterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
+    private fun parseContent(content: String): String {
+        content.replace("#`javascript`", "")
+        content.replace("#`c`", "")
+        content.replace("#`javascript`", "")
+        content.replace("##", "")
+        return content
+    }
 
     private fun bindPost(item: DataModel.Post) {
+        itemView.post_card_post_username.text = item.creator.firstname + " " + item.creator.lastname
         itemView.post_card_post_title.text = item.title
-        itemView.post_card_post_content.text = item.content
+        itemView.post_card_post_content.text = parseContent(item.content)
         itemView.post_card_post_date.text = getDateTime(item.date
         )        //val image = itemView.post_card_user_avatar
         //Picasso.get().load(item.creator.avatarUrl).into(image)
@@ -88,7 +96,7 @@ class DataAdapterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private fun bindAnswer(item: DataModel.Answer) {
         //itemView.answer_card_answer_to.text = item.postTitle
-        itemView.answer_card_answer_content.text = item.content
+        itemView.answer_card_answer_content.text = parseContent(item.content)
         val image = itemView.answer_card_user_avatar
         itemView.setOnClickListener {
             val intent = Intent(itemView.context, PostActivity::class.java)
@@ -124,16 +132,39 @@ class DataAdapterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private fun bindPostAnswer(item: DataModel.PostAnswer){
 
-        val userConnectedPreferences = itemView.context.getSharedPreferences("Login", MODE_PRIVATE)
-
         itemView.post_answer_card_answer_username.text =
             item.creator.firstname + " " + item.creator.lastname
         itemView.post_answer_card_answer_content.text =
-            item.content
+            parseContent(item.content)
         itemView.post_answer_card_answer_date.text =
             getDateTime(item.date)
         itemView.post_answer_card_answer_likes.text =
             itemView.context.getString(R.string.nb_likes, item.nbLikes.toString())
+
+        val userConnectedPreferences = itemView.context.getSharedPreferences("Login", MODE_PRIVATE)
+        GlobalScope.launch {
+            val getUserProfilImage: Call<ResponseModel.ImageResponse> =
+                NetworkManager.getUserProfilImage(
+                    item.creator.id!!,
+                    userConnectedPreferences!!.getString("accessToken", null)!!
+                )
+            var userProfilImage = getUserProfilImage.execute().body()
+            var imageToBitmap: Bitmap? = null
+            if (userProfilImage != null) {
+                if ( userProfilImage.file != null) {
+                    val imageToByte = Base64.getDecoder().decode(userProfilImage!!.file)
+                    imageToBitmap =
+                        BitmapFactory.decodeByteArray(imageToByte, 0, imageToByte.size)
+                    print(userProfilImage)
+                }
+            }
+            withContext(Dispatchers.Main) {
+                if (imageToBitmap != null) {
+                    itemView.post_answer_card_user_avatar_image.setImageBitmap(imageToBitmap)
+                }
+
+            }
+        }
 
         if ( item.liked ){
             itemView.post_answer_card_answer_like_icon.setBackgroundResource(R.drawable.ic_like_full)

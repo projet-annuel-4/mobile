@@ -56,10 +56,11 @@
         android:layout_marginTop="15dp">
 
         <ImageView
+            android:id="@+id/answer_activity_post_user_avatar_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/ic_group_icon"
-            android:alpha="0.35"/>
+            android:background="@drawable/place_holder_user"
+            />
 
     </androidx.cardview.widget.CardView>
 

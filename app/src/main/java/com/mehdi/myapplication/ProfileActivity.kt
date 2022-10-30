@@ -51,7 +51,7 @@ class ProfileActivity: AppCompatActivity() {
             } else if (i == 1) {
                 tab.text = "Answers"
             } else {
-                tab.text = "Friends"
+                tab.text = "Followers"
             }
         }.attach()
 
@@ -100,7 +100,9 @@ class ProfileActivity: AppCompatActivity() {
                 setUserProfileInfo(
                     userInfoResponse!!,responsePost,responseFollower
                 )
-                checkIsFollowing()
+                if (idUser != userConnectedPreferences.getLong("idUser", -1)) {
+                    checkIsFollowing()
+                }
                 withContext(Dispatchers.Main) {
                     setDataOnLayout(user)
                     manageButtons()
@@ -129,9 +131,9 @@ class ProfileActivity: AppCompatActivity() {
                     call: Call<Void>,
                     response: Response<Void>
                 ) {
-                    if(response.code() == 200){
-                        isFollowing = true
-                    }
+                    isFollowing = response.code() == 200
+                    manageFollowState()
+
                 }
             }
             )
@@ -153,6 +155,8 @@ class ProfileActivity: AppCompatActivity() {
                 ) {
                     if(response.code() == 202){
                         isFollowing = true
+                        user.nbFollow = user.nbFollow?.plus(1)
+                        profile_user_nb_friends.text = getString(R.string.nb_followers, user.nbFollow.toString())
                         manageFollowState()
                     }
                 }
@@ -176,6 +180,8 @@ class ProfileActivity: AppCompatActivity() {
                 ) {
                     if(response.code() == 202){
                         isFollowing = false
+                        user.nbFollow = user.nbFollow?.minus(1)
+                        profile_user_nb_friends.text = getString(R.string.nb_followers, user.nbFollow.toString())
                         manageFollowState()
                     }
                 }
@@ -232,11 +238,11 @@ class ProfileActivity: AppCompatActivity() {
 
     private fun manageFollowState(){
         if ( isFollowing == true ){
-            follow_button.visibility = View.VISIBLE
-            unfollow_button.visibility = View.GONE
-        } else {
             follow_button.visibility = View.GONE
             unfollow_button.visibility = View.VISIBLE
+        } else {
+            follow_button.visibility = View.VISIBLE
+            unfollow_button.visibility = View.GONE
         }
     }
 
