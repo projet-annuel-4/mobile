@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="5dp"
+    android:background="@color/black">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/post_answer_card_answer_user_avatar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@color/black"
+        app:cardCornerRadius="50dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_group_icon"
+            android:alpha="0.35"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/post_answer_card_answer_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/post_answer_card_answer_user_avatar"
+        app:layout_constraintTop_toTopOf="@id/post_answer_card_answer_user_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/post_answer_card_answer_user_avatar"/>
+
+    <TextView
+        android:id="@+id/post_answer_card_answer_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_answer_card_answer_user_avatar"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"/>
+
+    <TextView
+        android:id="@+id/post_answer_card_answer_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#9F9F9F"
+        android:textSize="10sp"
+        android:gravity="right"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_answer_card_answer_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"/>
+
+
+    <TextView
+        android:id="@+id/post_answer_card_answer_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/post_answer_card_answer_like_icon"
+        app:layout_constraintTop_toBottomOf="@id/post_answer_card_answer_date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="15dp"/>
+    
+    <ImageButton
+        android:id="@+id/post_answer_card_answer_like_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/ic_like_empty"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_answer_card_answer_date"/>
+
+    <ImageButton
+        android:id="@+id/delete_action"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/ic_trash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/post_answer_card_answer_content"
+        android:layout_marginEnd="5dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/create_post_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/create_post_caps"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/create_post_back_arrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_back_arrow"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/create_post_header_divider"/>
+
+    <View
+        android:id="@+id/create_post_header_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/create_post_header"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+<!--    <EditText-->
+<!--        android:id="@+id/create_post_post_title"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:textSize="20sp"-->
+<!--        android:background="#000000"-->
+<!--        android:hint="TEST TITLE"-->
+<!--        android:textColorHint="@color/grey"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/create_post_header_divider"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/create_post_post_title_divider"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="2dp"-->
+<!--        android:background="@color/white"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/create_post_post_title"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/create_post_post_content"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:background="#000000"-->
+<!--        android:hint="TEST CONTENT"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textColorHint="@color/grey"-->
+<!--        android:gravity="top"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/create_post_post_title_divider"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/create_post_post_content_divider"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/white"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/create_post_post_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/create_post_post_tags"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:background="#000000"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/create_post_post_content_divider"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/create_post_post_tags_divider"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/white"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/create_post_post_tags"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+
+<!--    <Button-->
+<!--        android:id="@+id/create_post_create_action"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:text="Create"-->
+<!--        android:textColor="@color/black"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/create_post_post_tags_divider" />-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/create_post_form_start_width"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="75dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/create_post_form_end_width"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="75dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/create_post_form_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="281dp" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_title_input"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/create_post_post_title"
+        app:layout_constraintStart_toStartOf="@id/create_post_post_title"/>
+
+
+    <EditText
+        android:id="@+id/create_post_post_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-150dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:drawableTint="@color/white"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toTopOf="@id/create_post_form_start"
+        app:layout_constraintStart_toStartOf="@id/create_post_form_start_width"
+        app:layout_constraintEnd_toEndOf="@id/create_post_form_end_width"
+        android:hint="@string/post_title_input"
+        />
+
+
+    <TextView
+        android:id="@+id/create_post_post_content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_content_input"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/create_post_post_title"
+        app:layout_constraintStart_toStartOf="@id/create_post_post_title"/>
+
+    <EditText
+        android:id="@+id/create_post_post_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="6"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:drawableTint="@color/white"
+        android:backgroundTint="@color/white"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/create_post_post_content_title"
+        app:layout_constraintStart_toStartOf="@id/create_post_form_start_width"
+        app:layout_constraintEnd_toEndOf="@id/create_post_form_end_width"
+        android:hint="@string/post_content_input"
+        />
+
+
+    <TextView
+        android:id="@+id/create_post_add_member_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_tags_input"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/create_post_post_content"
+        app:layout_constraintStart_toStartOf="@id/create_post_post_content"/>
+
+    <EditText
+        android:id="@+id/create_post_add_member_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:drawableTint="@color/white"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/create_post_add_member_label"
+        app:layout_constraintStart_toStartOf="@id/create_post_form_start_width"
+        app:layout_constraintEnd_toEndOf="@id/create_post_form_end_width"
+        android:hint="ex : java"
+        />
+
+    <Button
+        android:id="@+id/create_post_add_tag_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:text="@string/add"
+        app:layout_constraintTop_toBottomOf="@id/create_post_add_member_value"
+        app:layout_constraintStart_toStartOf="@id/create_post_form_start_width"
+        app:layout_constraintEnd_toEndOf="@id/create_post_form_end_width"/>
+
+<!--    <com.google.android.material.chip.ChipGroup-->
+<!--        android:id="@+id/create_post_tag_chip_group"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layoutManager="LinearLayoutManager"-->
+<!--        android:scrollbars="vertical"-->
+<!--        app:layout_constraintStart_toStartOf="@id/create_post_form_start_width"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/create_post_form_end_width"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/create_post_add_tag_button"-->
+<!--        />-->
+
+    <ScrollView
+        android:id="@+id/create_post_tag_chip_group_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:scrollbars="none"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/create_post_form_start_width"
+        app:layout_constraintEnd_toEndOf="@id/create_post_form_end_width"
+        app:layout_constraintTop_toBottomOf="@id/create_post_add_tag_button">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/create_post_tag_chip_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="LinearLayoutManager"
+            android:scrollbars="vertical"/>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/create_post_create_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:text="@string/create_post"
+        app:layout_constraintTop_toBottomOf="@id/create_post_tag_chip_group_scrollview"
+        app:layout_constraintStart_toStartOf="@id/create_post_form_start_width"
+        app:layout_constraintEnd_toEndOf="@id/create_post_form_end_width"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

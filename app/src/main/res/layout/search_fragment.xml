@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RadioGroup
+        android:id="@+id/search_radio_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <RadioButton
+            android:id="@+id/radio_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/post_caps"
+            android:buttonTint="@color/white"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textColor="@color/white"/>
+
+        <RadioButton
+            android:id="@+id/radio_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_caps"
+            android:buttonTint="@color/white"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/white"/>
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_post_form"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#7C000000"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_radio_button"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/search_post_form_start_width"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="75dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/search_post_form_end_width"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="75dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/search_post_form_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="250dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_post_title"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/search_post_post_title"
+            app:layout_constraintStart_toStartOf="@id/search_post_post_title"/>
+
+
+        <EditText
+            android:id="@+id/search_post_post_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-150dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:drawableTint="@color/white"
+            android:backgroundTint="@color/white"
+            app:layout_constraintTop_toTopOf="@id/search_post_form_start"
+            app:layout_constraintStart_toStartOf="@id/search_post_form_start_width"
+            app:layout_constraintEnd_toEndOf="@id/search_post_form_end_width"
+            android:hint="@string/post_title_input"
+            />
+
+
+        <TextView
+            android:id="@+id/search_post_post_content_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_post_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/search_post_post_title"
+            app:layout_constraintStart_toStartOf="@id/search_post_post_title"/>
+
+        <EditText
+            android:id="@+id/search_post_post_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="6"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:drawableTint="@color/white"
+            android:backgroundTint="@color/white"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/search_post_post_content_title"
+            app:layout_constraintStart_toStartOf="@id/search_post_form_start_width"
+            app:layout_constraintEnd_toEndOf="@id/search_post_form_end_width"
+            android:hint="@string/post_content_input"
+            />
+
+
+        <TextView
+            android:id="@+id/search_post_add_tag_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_post_tags"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/search_post_post_content"
+            app:layout_constraintStart_toStartOf="@id/search_post_post_content"/>
+
+        <EditText
+            android:id="@+id/search_post_add_tag_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:drawableTint="@color/white"
+            android:backgroundTint="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/search_post_add_tag_label"
+            app:layout_constraintStart_toStartOf="@id/search_post_form_start_width"
+            app:layout_constraintEnd_toEndOf="@id/search_post_form_end_width"
+            android:hint="ex : java"
+            />
+
+        <Button
+            android:id="@+id/search_post_add_tag_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="@string/add"
+            app:layout_constraintTop_toBottomOf="@id/search_post_add_tag_value"
+            app:layout_constraintStart_toStartOf="@id/search_post_form_start_width"
+            app:layout_constraintEnd_toEndOf="@id/search_post_form_end_width"/>
+
+        <!--    <com.google.android.material.chip.ChipGroup-->
+        <!--        android:id="@+id/search_post_tag_chip_group"-->
+        <!--        android:layout_width="0dp"-->
+        <!--        android:layout_height="100dp"-->
+        <!--        android:layout_marginTop="20dp"-->
+        <!--        app:layoutManager="LinearLayoutManager"-->
+        <!--        android:scrollbars="vertical"-->
+        <!--        app:layout_constraintStart_toStartOf="@id/search_post_form_start_width"-->
+        <!--        app:layout_constraintEnd_toEndOf="@id/search_post_form_end_width"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/search_post_add_tag_button"-->
+        <!--        />-->
+
+        <ScrollView
+            android:id="@+id/search_post_tag_chip_group_scrollview"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:scrollbars="none"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/search_post_form_start_width"
+            app:layout_constraintEnd_toEndOf="@id/search_post_form_end_width"
+            app:layout_constraintTop_toBottomOf="@id/search_post_add_tag_button">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/search_post_tag_chip_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="LinearLayoutManager"
+                android:scrollbars="vertical"/>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/search_post_search_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="@string/search"
+            app:layout_constraintTop_toBottomOf="@id/search_post_tag_chip_group_scrollview"
+            app:layout_constraintStart_toStartOf="@id/search_post_form_start_width"
+            app:layout_constraintEnd_toEndOf="@id/search_post_form_end_width"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_user_form"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#7C000000"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_radio_button"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/search_user_form_start_width"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="75dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/search_user_form_end_width"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="75dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/search_user_form_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="400dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_user_email"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/search_user_firstname"
+            app:layout_constraintStart_toStartOf="@id/search_user_firstname"/>
+
+
+        <EditText
+            android:id="@+id/search_user_firstname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-150dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:drawableTint="@color/white"
+            android:backgroundTint="@color/white"
+            app:layout_constraintTop_toTopOf="@id/search_user_form_start"
+            app:layout_constraintStart_toStartOf="@id/search_user_form_start_width"
+            app:layout_constraintEnd_toEndOf="@id/search_user_form_end_width"
+            android:hint="ex: jean"
+            android:paddingStart="10dp"
+            />
+
+
+
+        <Button
+            android:id="@+id/search_user_search_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="@string/search"
+            app:layout_constraintTop_toBottomOf="@id/search_user_firstname"
+            app:layout_constraintStart_toStartOf="@id/search_user_form_start_width"
+            app:layout_constraintEnd_toEndOf="@id/search_user_form_end_width"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

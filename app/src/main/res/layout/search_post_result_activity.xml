@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/search_post_result_activity_header_guideline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="75dp" />
+
+    <ImageButton
+        android:id="@+id/search_post_result_activity_back_arrow"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/search_post_result_activity_header_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/search_post_result_activity_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search post result"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toEndOf="@id/search_post_result_activity_back_arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/search_post_result_activity_header_guideline"
+        />
+
+    <View
+        android:id="@+id/search_post_result_activity_header_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/search_post_result_activity_header_guideline"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_search_post"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/search_post_result_activity_header_divider"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/no_result_search_post"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="No Result for this research"
+        app:layout_constraintTop_toBottomOf="@+id/search_post_result_activity_header_divider"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    
+
+</androidx.constraintlayout.widget.ConstraintLayout>

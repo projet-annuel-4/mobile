@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="nb_likes">%1$s likes</string>
+    <string name="nb_members">%1$s members</string>
+    <string name="nb_projects">%1$s projects</string>
+    <string name="nb_answers">%1$s answers</string>
+    <string name="nb_posts">%1$s posts</string>
+    <string name="nb_followers">%1$s followers</string>
+    <string name="create_answers">Answer</string>
+    <string name="your_answer">Your answer</string>
+    <string name="type_your_answer">Type your answer</string>
+    <string name="send_caps">SEND</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="connect_caps">Connect !</string>
+    <string name="create_project_caps">CREATE PROJECT</string>
+    <string name="create_group_caps">CREATE GROUP</string>
+    <string name="group_name_title_input">Group name</string>
+    <string name="add_member_title_input">Add members</string>
+    <string name="add_member_caps">Add member</string>
+    <string name="create_project">CREATE PROJECT !</string>
+    <string name="create_project_title">Create project</string>
+    <string name="project_name_title">Project name</string>
+    <string name="create_group">CREATE GROUP !</string>
+    <string name="create_post_caps">CREATE POST</string>
+    <string name="post_title_input">Post title</string>
+    <string name="post_content_input">Post content</string>
+    <string name="post_tags_input">Tags</string>
+    <string name="add">Add</string>
+    <string name="create_post">CREATE POST !</string>
+    <string name="enter_message">Enter message</string>
+    <string name="leave_group">Leave group</string>
+    <string name="projects">projects</string>
+    <string name="members">members</string>
+    <string name="my_group">members</string>
+    <string name="start_discussion">Start discussion</string>
+    <string name="start">Start</string>
+    <string name="Post_activity_title">Post</string>
+    <string name="answer_to_post">Answer to post</string>
+    <string name="follow">follow</string>
+    <string name="unfollow">unfollow</string>
+    <string name="posts">posts</string>
+    <string name="answers">answers</string>
+    <string name="followers">followers</string>
+    <string name="my_subscription">My Subscriptions</string>
+    <string name="by_user_email">By user email</string>
+    <string name="by_post_title">By post title</string>
+    <string name="by_post_content">By post content</string>
+    <string name="by_post_tags">By post tags</string>
+    <string name="search">Search</string>
+    <string name="user_caps">USER</string>
+    <string name="post_caps">POST</string>
+
+
+</resources>

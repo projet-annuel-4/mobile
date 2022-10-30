@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragmentItem"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_icon"
+        android:title="Home"/>
+    <item
+        android:id="@+id/searchFragmentItem"
+        android:enabled="true"
+        android:icon="@drawable/search_glass"
+        android:title="Search"/>
+    <item
+        android:id="@+id/notificationFragmentItem"
+        android:enabled="true"
+        android:icon="@drawable/ic_group_icon"
+        android:title="Groups"/>
+    <item
+        android:id="@+id/messageFragmentItem"
+        android:enabled="true"
+        android:icon="@drawable/ic_message_logo"
+        android:title="Messages"/>
+</menu>
